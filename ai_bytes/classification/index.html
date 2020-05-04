@@ -1,0 +1,920 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+        @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+        @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+        body {
+            font-family: 'Droid Serif';
+        }
+        h1, h2, h3 {
+            font-family: 'Yanone Kaffeesatz';
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+        .remark-slide-content h1 { font-size: 3em; }
+        .remark-slide-content h2 { font-size: 2em; }
+        .remark-slide-content h3 { font-size: 1.6em; }
+        .footnote {
+            position: absolute;
+            bottom: 3em;
+            font-size: 0.6em;
+        }
+        .header {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            font-size: 0.6em;
+        }
+        li p { line-height: 1.25em; }
+        .red { color: #fa0000; }
+        .large { font-size: 2em; }
+        a, a > code {
+            color: rgb(249, 38, 114);
+            text-decoration: none;
+        }
+        code {
+            border-radius: 5px;
+        }
+        .boxed {
+            background: #000;
+            color: #fff;
+            padding: 1em;
+            width: 90%;
+            border-radius: 5px;
+        }
+        .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+        .remark-code-line-highlighted     { background-color: #373832; }
+        .pull-left {
+            float: left;
+            width: 47%;
+        }
+        .pull-right {
+            float: right;
+            width: 47%;
+        }
+        .pull-right ~ p {
+            clear: both;
+        }
+        #slideshow .slide .content code {
+            font-size: 0.8em;
+        }
+        #slideshow .slide .content pre code {
+            font-size: 0.9em;
+            padding: 15px;
+        }
+        .inverse {
+            background: #272822;
+            color: #777872;
+            text-shadow: 0 0 20px #333;
+        }
+        .inverse h1, .inverse h2 {
+            color: #f3f3f3;
+            line-height: 0.8em;
+        }
+
+        .foot {
+            vertical-align: super;
+            font-size: 0.8em;
+            color: darkblue;
+        }
+
+        /* Slide-specific styling */
+        #slide-inverse .footnote {
+            bottom: 12px;
+            left: 20px;
+        }
+        #slide-how .slides {
+            font-size: 0.9em;
+            position: absolute;
+            top:  151px;
+            right: 140px;
+        }
+        #slide-how .slides h3 {
+            margin-top: 0.2em;
+        }
+        #slide-how .slides .first, #slide-how .slides .second {
+            padding: 1px 20px;
+            height: 90px;
+            width: 120px;
+            -moz-box-shadow: 0 0 10px #777;
+            -webkit-box-shadow: 0 0 10px #777;
+            box-shadow: 0 0 10px #777;
+        }
+        #slide-how .slides .first {
+            background: #fff;
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            z-index: 1;
+        }
+        #slide-how .slides .second {
+            position: relative;
+            background: #fff;
+            z-index: 0;
+        }
+
+        /* Two-column layout */
+        .left-column {
+            color: #777;
+            width: 20%;
+            height: 92%;
+            float: left;
+        }
+        .left-column h2:last-of-type, .left-column h3:last-child {
+            color: #000;
+        }
+        .right-column {
+            width: 75%;
+            float: right;
+            padding-top: 1em;
+        }
+
+        /* Table formatting */
+        table { border-collapse: collapse }
+
+        th, td {
+            padding: 5px;
+            border: 1px solid gray;
+        }
+
+        /* Image formatting */
+        .image-25 img {
+            width: 25%;
+        }
+
+        .image-30 img {
+            width: 30%;
+        }
+
+        .image-40 img {
+            width: 40%;
+        }
+
+        .image-50 img {
+            width: 50%;
+        }
+
+        .image-60 img {
+            width: 60%;
+        }
+
+        .image-70 img {
+            width: 70%;
+        }
+
+        .image-80 img {
+            width: 80%;
+        }
+
+        .image-90 img {
+            width: 90%;
+        }
+
+        .image-100 img {
+            width: 100%;
+        }
+
+        .caption {
+            font-size: .8em;
+        }
+
+        /* Top Nav*/
+        .top-column {
+            color: #777;
+            font-weight: bold;
+            border-bottom: 1px solid #777;
+            margin-bttom: 1em;
+        }
+        .top-column ul li {
+            display:inline;
+            padding-right: 1em
+        }
+        .top-column ul li:last-of-type {
+            color: #000;
+            display:inline
+        }
+
+        /*Blockquotes*/
+
+        blockquote {
+            padding-left: 1em;
+            border-left: 5px solid #5996d0;
+        }
+    </style>
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+.header[
+<small>Created with [remark](https://github.com/gnab/remark)</small>
+]
+
+# AI Bytes
+## Classification
+<hr>
+Dileep Patchigolla
+
+May 5, 2020
+
+---
+
+# About me
+
+Dileep Patchigolla
+
+- Lead Engineer @ Search
+
+- With Target since July 2018
+
+- MS, Computational Data Analytics - Georgia Tech
+
+- B.Tech, Mechanical Engineering - IIT Madras
+
+
+
+---
+
+# Agenda
+
+- What is Classification?
+
+- Statistical approach: Logistic Regression
+
+- Geometric approach: SVM
+
+- Rules based approach: Decision Trees
+
+- Rules based approach, mixing models: Random Forest
+
+
+---
+## Classification
+
+Binary classification:
+
+_Yes / No Problems_
+- Should a credit card application be approved?
+- Is this transaction genuine?
+- Does the mail belong to spam?
+- Is this customer male or female?
+<br>
+<br>
+<br>
+
+--
+
+_But what if there are more than two classes?_
+
+Multi-class classification:
+- What marketing campaign should I send to a customer?
+- Which category does a query belong to?
+- Who is the person in an image?
+
+
+---
+
+## IRIS Dataset
+
+- Features
+  - Sepal length & width, Petal length & width
+- Label
+  - Setosa, Versicolor, Virginica
+
+.center.image-50[![](iris_sample.png)]
+--
+<br>
+### Binary Classification:
+- Let's consider two classes: Versicolor and Virginica
+
+--
+- Call one class as 0 and other as 1. Typically based on which case we consider as _positive_. Here the choice is arbitrary
+- Come up with a function `$f(x)$` which gives the value of `$y$`, for a given `$x$`
+- Model the likelihood of a datapoint belonging to a class. i.e.,
+
+`$\qquad\qquad\qquad\qquad\qquad\qquad P(Y==1|X)$`
+---
+# Linear Regression - Quick Review
+
+.center.image-50[![](linear_regression.png)]
+<br>
+`$\qquad\qquad\qquad\qquad\qquad\qquad y = w_{0} + w_{1} x_{1}$`
+
+
+- `$y$` is continuous and its range can be very wide.
+- Fit a straight line on the features, to get an estimate of `$y$`
+---
+
+# Logistic Regression
+
+`$f(x) = w_0 + w_{1}x_{1}$`
+
+- Similar to Linear Regression (linear formulation)
+
+- But `$y$` is not continuous. Takes only two values, 0 and 1
+
+--
+
+- Make discrete problem to continuous problem. Predict `$P(Y==1|X)$`, i.e., _probability_ of `$y=1$`
+
+--
+
+- Need some translation that always binds `$f(x)$` between 0 and 1
+
+---
+
+# Sigmoid function
+`$P(Y==1|X)  = \frac{1}{1+ e^{-f(x)}} = \sigma(f(x))$`
+
+
+.center.image-50[![](sigmoid.png)]
+
+- Bounded between 0 and 1
+
+- Asymptotically gets closer to 0 and 1
+
+---
+# Logit function
+
+- So what does the linear equation `$f(x)$` mean?
+
+--
+
+Lets denote `$P(Y==1|X)$` by `$p$`
+
+`$\qquad\qquad\qquad p = \frac{1}{1+ e^{-f(x)}}$`
+
+--
+
+`$\qquad\qquad\qquad \frac{1}{p} = 1+ e^{-f(x)}$`
+
+--
+
+`$\qquad\qquad\qquad \frac{1-p}{p} = e^{-f(x)}$`
+
+--
+
+`$\qquad\qquad\qquad \frac{p}{1-p} = e^{f(x)}$`
+
+--
+
+`$\qquad\qquad\qquad log(\frac{p}{1-p}) = f(x)$`
+
+- `$log(\frac{p}{1-p})$` is called logit function - log-odds ratio
+
+- odds = `$\frac{\text{#yes}}{\text{#no}}$`
+---
+
+# Weights
+- `$f(x)$` can take several variables. i.e., `$f(x) = w_0 + w_{1}x_{1} + . . . w_{m}x_{m}$`
+
+- In our example, `$x_{1} = $` Sepal length, `$x_{2} = $` Sepal width etc.
+
+- But what about `$w_{0}, w_{1},...w_{n}$`?
+
+- Use the available data and their labels.
+
+- Create a loss function and try to minimize that
+
+---
+# Log Loss
+  <br/><br/>
+`$ \qquad\qquad\qquad\qquad \hat{y} = P(Y==1|X)  = \frac{1}{1+ e^{-(w_0 + w_{1}x_{1} + . . . w_{m}x_{m})}} $`
+
+<br/><br/>
+`$ \qquad\qquad\qquad \qquad L = -\frac{1}{n} \Sigma_{i=1}^{n} \enspace y_{i} log(\hat{y_{i}}) + (1-y_{i}) log(1-\hat{y_{i}})$`
+
+- a.k.a. Binary Cross Entropy. Minimize this value
+
+- If `$y_{i}$` = 0, first part of the loss is zero and second part is active. Loss = `$log(1-\hat{y}_{i})$`
+
+--
+    - If `$\hat{y}_{i}$` is close to 0 (_correct prediction_), then `$1-\hat{y}_{i}$` is close to 1 and `$log(1-\hat{y}_{i})$` gets close to 0. Overall loss is zero
+
+--
+    - If `$\hat{y}_{i}$` is close to 1 (_wrong prediction_), then `$1-\hat{y}_{i}$` is close to 0 and `$log(1-\hat{y}_{i})$` gets close to `$-\infty$`. Overall loss is zero
+
+--
+
+- If y = 1, the roles reverse. Loss = `$log(\hat{y}_{i})$`
+---
+# Gradient Descent
+
+- Initialize weights randomly
+
+- Iterate until convergence:
+    - Compute the Loss
+    - Compute Gradient, and update weights
+
+--
+- Fun fact:
+    - `$\frac{\partial L}{\partial w} = -\frac{1}{n}\Sigma_{i=1}^{n} x_{i}(y_{i} - \hat{y}_{i})$`
+
+    - `$\frac{\partial \sigma(x)}{\partial x} = \sigma(x) * (1-\sigma(x))^{[1]}$`
+
+.footnote[
+[1] https://math.stackexchange.com/questions/78575/derivative-of-sigmoid-function-sigma-x-frac11e-x
+    ]
+---
+# Example
+
+.center.image-50[![](iris_nonseparable.png)]
+
+- `$x_{1}$` = petal length and `$x_{2}$` = petal width
+- y = 1 for versicolor and 0 for Virginica
+
+---
+# Example (Cont.)
+    logistic = LogisticRegression(solver="lbfgs")
+    logistic.fit(iris_data.iloc[:, 2:4], iris_data["Y"])
+    print(np.round(logistic.intercept_,2)[0], np.round(logistic.coef_,2)[0])
+- `$w_{0} = 17.55$`, `$w_{1}$` = -2.78, `$w_{2} = -2.39$`
+
+--
+
+
+- `$\hat{y} = \frac{1}{1+ e^{-(w_0 + w_{1}x_{1} + w_{2}x_{2})}} $`
+
+--
+
+- But `$\hat{y}$` is not 0 or 1. How do we convert `$\hat{y}$` to a yes/no decision?
+
+--
+
+- Identify a threshold for cutoff
+
+.center.image-40[![](yhat_dist.png)]
+
+---
+# Metrics
+For a given threshold:
+### Confusion Matrix:
+.center.image-40[![](confusion_matrix_def.jpeg)]
+
+- Accuracy: `$\frac{\text{True Positive + True Negative}}{\text{Total Count}}$`
+
+- Precision: `$\frac{\text{True Positive}}{\text{True Positive + False Positive}}$`
+
+- Recall/True Positive Rate: `$\frac{\text{True Positive}}{\text{True Positive + False Negative}}$`
+
+- F1-Score: `$\frac{2}{Precision^{-1} + Recall^{-1}}$`
+
+- False Positive Rate: `$\frac{\text{False Positive}}{\text{False Positive + True Negative}}$`
+
+---
+# Metrics
+For varying threshold:
+ROC Curve
+.center.image-40[![](roc_definition.png)]
+
+F1 Score at varying threshold
+.center.image-40[![](f1_range.png)]
+
+---
+# Connection with Neural Nets
+<br><br><br>
+.center.middle.image-40[![](logistic_nn.png)]
+- Logistic Regression is a Neural Network with a single hidden layer, single unit, and sigmoid activation
+---
+# Logistic Regression
+### Review
+- `$\hat{y} = \frac{1}{1+ e^{-(w_0 + w_{1}x_{1} + w_{2}x_{2})}} $`
+
+- Returns the probability of y = 1
+
+- Need to identify a threshold by checking for precision and recall (best f1-score is one way)
+
+- A Neural Network with one hidden layer and one neuron, with sigmoid activation
+
+- In case of multi-class classification, can be modeled as multiple one-vs-rest models
+---
+layout: false
+class: center, middle
+    # SVM
+---
+# A Geometric Approach
+.center.image-50[![](linear_separable.png)]
+
+- How to separate them?
+---
+# A Geometric Approach
+.center.image-50[![](perceptron_result.png)]
+
+- Which line is better?
+
+---
+# A Geometric Approach
+.center.image-50[![](maximum_margin_iris.png)]
+
+- How about this?
+---
+# Maximum Margin Classifier
+
+Linearly separable data
+.center.image-40[![](maximum_margin_classifier.png)]
+
+- Thick center line is called decision boundary
+
+- Both broken lines are equidistant to the decision boundary. The distance is called Margin (M)
+
+- Choose the center line such that M is maximum
+
+- Some points always touch the margin. These are called _support vectors_
+
+---
+
+# Maximum Margin Classifier
+
+Linearly separable data
+.center.image-40[![](maximum_margin_classifier.png)]
+
+- The dotted lines take the form `$x^{T}\beta + \beta_{0} = 1$` and `$x^{T}\beta + \beta_{0} = -1$`
+
+- Dist. between parallel lines of form `$b_{0} + w_{1}x_{1} + w_{2}x_{2} = 0$` and `$b_{1} + w_{1}x_{1} + w_{2}x_{2} = 0$` is `$\frac{|b_{0} - b_{1}|}{\sqrt{w_{1}^{2} + w_{2}^{2}}}$`
+
+- Therefore, M = `$\frac{1}{||\beta||}$`. Maximize M = Minimize `$||\beta||$`
+
+---
+
+# Maximum Margin Classifier
+
+<br>
+Objective Function:
+
+.center[Minimize `$||\beta||$`]
+
+s.t. `$\qquad\qquad\qquad\qquad\qquad y_{i} (x_{i}^{T}\beta + \beta_{0}) \geq 1 \quad \forall i=1,2,....N$`
+<br><br><br>
+- We denote `$y$` as +1/-1
+
+- sign`$(x_{i}^{T}\beta + \beta_{0})$` = class of `$x_{i}$` for every `$i$`
+
+--
+
+- So, what if the data is not separable linearly?
+---
+# Support Vector Classifier
+
+Not separable linearly
+
+.center.image-40[![](svc.png)]
+
+- An error term `$\xi$` is introduced. Measures distance from margin, to the wrong side.
+
+---
+# Objective Function
+
+Minimize `$\frac{1}{2}||\beta||^{2} + C\enspace \Sigma_{i=1}^{n} \xi_{i}$`
+
+s.t. `$\qquad\qquad\qquad \xi_{i} \geq 0, y_{i} (x_{i}^{T}\beta + \beta_{0}) \geq 1 - \xi_{i}\quad \forall i=1,2,....N$`
+
+
+- C: Cost parameter. Higher C, low tolerance for errors. Lower C, high tolerance for errors.
+
+--
+
+.center.image-60[![](svm_C.png)]
+
+---
+# Solution
+
+`$\qquad\qquad\qquad\qquad\qquad\qquad \hat{\beta}=\Sigma_{i=1}^{N} \hat{\alpha_{i}}y_{i}x_{i}$`.foot[1]
+
+-  `$\hat{\beta}$` depends only on the Support vector points.
+
+- Predicted Class = `$Sign[x^{T}\beta + \beta_{0}]$` = `$Sign[\Sigma_{i=1}^{N} \hat{\alpha_{i}}y_{i}x_{i} x^{T} + \beta_{0}]$`
+
+- We don't even need `$\beta$` to get predictions. We just need `$\alpha_{i}$` for every support vector.
+
+.footnote[
+[1] Elements of Statistical Learning, p 420-421    ]
+--
+
+`$\qquad\qquad\qquad\qquad max L_{D} = \Sigma_{i=1}^{N}\alpha_{i} - \frac{1}{2}\Sigma_{i=1}^{N}\Sigma_{\hat{i}=1}^{N}\alpha_{i}\alpha_{\hat{i}}y_{i}y_{\hat{i}}x^{T}_{i}x_{\hat{i}} $`
+
+- `$\alpha$` values depend only on dot product between pairs of training datasets
+
+- Predictions depend only on dot product between support vectors and new data point
+
+- Dot products are central to SVM
+
+---
+# Non linear separation?
+
+<br><br>
+.center.image-40[![](non_linear_separation.png)]
+
+### Linear classifier doesn't look like a good option.
+
+--
+
+Project data to higher dimensions, and classify there!
+.center.image-40[![](projection1.png)]
+
+Can go to more dimensions as well.
+
+.footnote[https://www.andreaperlato.com/theorypost/introduction-to-support-vector-machine/]
+---
+# Kernels
+
+- `$[x, x^{2}]$` is our new projection space
+
+- We need dot products only. So we want `$x_{1}x_{2} + x_{1}^{2}x_{2}^{2}$`
+
+- Define `$K(x_{1}, x_{2}) = (x_{1}x_{2} + r)^{d}$`
+
+- For `$r=\frac{1}{2}$` and `$d=2$`, `$K(x_{1}, x_{2})$` becomes `$x_{1}x_{2} + x_{1}^{2}x_{2}^{2} + \frac{1}{4}$`, or dot product between `$(x_{1}, x_{1}^{2}, \frac{1}{2})$` and `$(x_{2}, x_{2}^{2}, \frac{1}{2})$`
+
+- The function  `$K(x_{1}, x_{2})$` gets us all information without projecting into higher dimensions
+
+- Any function K can act as a kernel as long as it satisfies following property: `$K(x_{1}, x_{2}) = < f(x_{1}), f(x_{2}) > $`
+
+- Above Kernel is called as Polynomial Kernel. `$r$` and `$d$` are hyperparameters
+
+- And this is called **Kernel Trick!!!**
+
+---
+
+# RBF Kernel
+
+- What if we want to expand to infinite dimensions? i.e., `$x, x^{2}, x^{3}, x^{4}, .... $`
+
+--
+
+- `$K(x_{1}, x_{2}) = e^{-\gamma ||x_{1} - x_{2}||^{2}}$`
+
+--
+
+- From Taylor series, `$e^{x} = 1 + x + \frac{x^{2}}{2!} + ... = \Sigma_{n=0}^{\infty} \frac{x^{n}}{n!}$`
+
+--
+
+- Let `$\gamma = \frac{1}{2}$`
+
+`$\qquad e^{-\frac{1}{2} ||x_{1} - x_{2}||^{2}} = e^{\frac{-1}{2} (x_{1}^{2} + x_{2}^{2})} e^{< x_{1}, x_{2} >} $`
+
+
+`$\qquad e^{\frac{-1}{2} (x_{1}^{2} + x_{2}^{2})} (1 + x_{1}x_{2} + \frac{x_{1}^{2}x_{2}^{2}}{2!} + ....)$`
+
+
+`$\qquad e^{\frac{-1}{2} (x_{1}^{2} + x_{2}^{2})} < (1 , x_{1} , \frac{x_{1}^{2}}{\sqrt{2!}} ,....), (1 , x_{2} , \frac{x_{2}^{2}}{\sqrt{2!}}, ....) >$`
+
+Let `$e^{\frac{-x_{1}}{2}}  = s_{1}, e^{\frac{-x_{2}}{2}}  = s_{2}$`
+
+`$\qquad < (s_{1} , s_{1}x_{1} , s_{1}\frac{x_{1}^{2}}{\sqrt{2!}} ,....), (s_{2} , s_{2}x_{2} , s_{2}\frac{x_{2}^{2}}{\sqrt{2!}}, ....) >$`
+
+- Therefore, RBF Kernel summarizes dot-product in infinite dimensions
+
+---
+# Example
+
+    svm_lin = SVC(kernel="linear")
+    svm_lin.fit(iris_data.iloc[:, 0:2], iris_data["Y"])
+    svm_rbf = SVC(C=100000, kernel="rbf", gamma="auto")
+    svm_rbf.fit(iris_data.iloc[:, 0:2], iris_data["Y"])
+
+.center.image-60[![](iris_svm_rbf.png)]
+
+--
+
+careful not to overfit!
+
+---
+# SVM Overview
+
+- _Maximum Margin Classifier_: Creates a decision boundary such that it separates the classes with as high margin as possible
+
+--
+
+- _Support Vectors_: Data points that touch the margin. Other points far away from margin have no influence on decision boundary
+
+--
+
+- _Support Vector Classifier_: When the classes are not perfectly separable, allows scope to have some errors
+
+--
+
+- _Support Vector Machines_: Uses high dimension projections to identify non-linear boundaries
+
+--
+
+- _Kernel Trick_: Gets same effect of high-dimension projections, without actually making the projections
+
+
+---
+# SVM Overview (Contd. )
+
+### Pros:
+
+- Very useful when clear separations exist, even in non-linear spaces
+
+- Works well in case of large no:of features (high dimensional data). Works even if features are more than data points
+
+- Memory efficient as it needs to remember only the support vectors
+
+--
+
+### Cons:
+
+- Doesn't scale very well because of high training time
+
+- Doesn't give probabilities like Logistic Regression (expensive work-around)
+
+- Doesn't work well if there's lot of class overlap
+
+---
+layout: false
+class: center, middle
+    # Decision Trees
+
+---
+# Decision Trees
+
+- You want to send a marketing campaign about a new beauty product. How will you select your target customers?
+
+    - _age_ + 100 * _isFemale_ `$\geq$` 120
+
+    -  _age_ `$\geq$` 20 and _isFemale_
+
+Which looks better?
+
+---
+# Decision Trees
+
+Another Example
+.center.image-40[![](decision_rules.png)]
+
+---
+# Decision Trees
+.center.image-60[![](decision_tree_nomenclature.png)]
+
+But how do we decide where to split?
+
+---
+# Entropy and Information Gain
+
+- Node `$m$`, class `$k$`
+- Gini Index: Measure of Inequality. Higher the Gini Index, more _mixed_ the data is. Lower, more _pure_ the data.
+- Cross Entropy: Measure of randomness
+
+`$\qquad\qquad\qquad\qquad\qquad\qquad -\Sigma_{k=1}^{K}\hat{p_{mk}}log(1-\hat{p_{mk}})$`
+
+`$\qquad\qquad\qquad\qquad\qquad\qquad \Sigma_{k=1}^{K}\hat{p_{mk}}(1-\hat{p_{mk}})$`
+
+Ex: Setosa: 50, Versicolor: 50, Virginica: 50. `$p_{1} = p_{2} = p_{3}  = \frac{1}{3}$`
+
+Gini = `$\frac{1}{3} * \frac{2}{3} + \frac{1}{3} * \frac{2}{3} + \frac{1}{3} * \frac{2}{3} = \frac{2}{3} $`
+
+Entropy = `$-(\frac{1}{3} * log(1 - \frac{2}{3}) + \frac{1}{3} * log(1 - \frac{2}{3}) + \frac{1}{3} * log(1 - \frac{2}{3}) )= 0.176$`
+
+Split node to three separate notes:
+    - N1: Setosa: 40, Versicolor: 10 (`$p_{1} = 0.8, p_{2} = 0.2, p_{3} = 0$`) S1: 50
+    - N2: Setosa: 10, Virginica: 50 (`$p_{1} = 0.167, p_{2} = 0., p_{3} = 0.833$`) S2: 60
+    - N3: Versicolor: 40 (`$p_{1} = 0., p_{2} = 1, p_{3} = 0$`) S3: 40
+
+
+---
+.image-70[![](decision_tree.png)]
+---
+
+class: center, middle
+    # Thank You
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+layout: false
+class: center, middle
+    # SVM
+    -- Maximum Margin Classifier (Hard Margin)
+
+    -- Support Vector Classifier (Soft Margin and Support-Vectors)
+
+    -- Support Vector Machine (Non-linear margin)
+
+    -- Support Vectors
+
+    -- n-Dimensional hyperplanes (flat-affine subspace)
+---
+
+layout: false
+class: center, middle
+    # Maximum Margin Classifier
+---
+
+layout: false
+class: center, middle
+    # Support Vector Classifier
+
+---
+
+layout: false
+class: center, middle
+    # Not separable Linearly?
+
+---
+
+layout: false
+class: center, middle
+    # Generalizing Non-linear transformations
+    -- Kernel functions
+
+
+---
+
+layout: false
+class: center, middle
+    # SVM
+Kernel: A similarity function between two data points.
+Kernel Trick:
+
+-- Functions of form `$K(x, x^{'}) = \phi(x)^{T} \phi(x^{'})$`
+
+-- As long as a function K exhibits above property, it can be used in Kernel trick
+
+-- Computation goes from `$O(n^{2})$` to `$O(n)$` --- Verify. Is this right?
+
+-- Homogeneous Kernels -
+---
+    # Polynomial Kernel
+-- Degree can be found from cross-validation
+`$(xy + r)^{d}$`
+-- Parameters: r (coefficient/intercept of the polynomial) and d (degree of the polynomial)
+
+-- ex: `$(xy + \frac{1}{2})^{2}$`
+`$\quad(xy + x^{2}y^{2} + \frac{1}{4})$`
+`$\quad<(x, x^{2}, \frac{1}{2}), (y, y^{2}, \frac{1}{2})>$`
+---
+    # RBF Kernel
+-- Radial Basis Functions: Depend only on the magnitude (typically Euclidean) of the distance. so `$K(x, x^{'}) = k(||x-x^{'}||)$`
+-- Works in infinite dimensions
+-- Acts as a weighted nearest neighbor: Closer points have higher influence vs farther points have lesser influence
+-- Highly flexible
+
+`$K(x,y) = e^{-\gamma(x-y)^{2}}$`
+
+-- x and y are two different data points. So, RBF is a function on the distance between the two points.
+
+-- `$\gamma$` is a hyper-parameter. Higher the `$\gamma$`, lower the influence of farther points.
+-- So `$\gamma$` acts as a *circle of influence*
+
+---
+    # Kernel Trick
+-- Calculates the relationship between every pair of points, _as if_ they are in high dimensions without actually transforming into the high dimensions
+---
+layout: false
+class: center, middle
+
+# What's the problem?
+
+-- Calculating the Kernel is very expensive. Especially for very large datasets
+
+
+
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+<script type="text/javascript">
+    var slideshow = remark.create({
+        highlightStyle: 'monokai',
+        highlightLanguage: 'remark',
+        countIncrementalSlides: false,
+        highlightLines: true
+    });
+
+    // Setup MathJax
+    MathJax.Hub.Config({
+        tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ]
+        }
+    });
+
+    MathJax.Hub.Configured();
+</script>
+</body>
+</html>
+
