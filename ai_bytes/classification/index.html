@@ -296,9 +296,10 @@ Multi-class classification:
 --
 - Call one class as 0 and other as 1. Typically based on which case we consider as _positive_. Here the choice is arbitrary
 - Come up with a function `$f(x)$` which gives the value of `$y$`, for a given `$x$`
-- Model the likelihood of a datapoint belonging to a class. i.e.,
 
-`$\qquad\qquad\qquad\qquad\qquad\qquad P(Y==1|X)$`
+---
+class: center, middle
+    # Logistic Regression
 ---
 # Linear Regression - Quick Review
 
@@ -534,6 +535,17 @@ Linearly separable data
 - Choose the center line such that M is maximum
 
 - Some points always touch the margin. These are called _support vectors_
+
+---
+# Maximum Margin Classifier
+
+Linearly separable data
+.center.image-40[![](maximum_margin_classifier_tilted_margin.png)]
+
+- The decision boundary can't tilt beyond this angle
+
+- Margin goes down
+
 
 ---
 
